@@ -34,9 +34,9 @@ public class FillFormTests extends BaseTest {
         $("#subjectsInput").setValue("Arts").pressEnter();
 
         //Hobbies
-        $("#hobbies-checkbox-1").parent().click();
-        $("#hobbies-checkbox-2").parent().click();
-        $("#hobbies-checkbox-3").parent().click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
 
         //Picture
         String imgName = "Anime.png";
