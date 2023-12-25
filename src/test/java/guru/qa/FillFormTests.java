@@ -59,6 +59,10 @@ public class FillFormTests extends BaseTest {
         $(".table").shouldHave(text("0123456789"));
         $(".table").shouldHave(text("11 January,1998"));
         $(".table").shouldHave(text("Arts"));
+        $(".table").shouldHave(text("Male"));
+        $(".table").shouldHave(text("Sports"));
+        $(".table").shouldHave(text("Reading"));
+        $(".table").shouldHave(text("Music"));
         $(".table").shouldHave(text(imgName));
         $(".table").shouldHave(text("Current Address"));
         $(".table").shouldHave(text("NCR Delhi"));
