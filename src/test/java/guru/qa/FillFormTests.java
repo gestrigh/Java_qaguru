@@ -45,9 +45,9 @@ public class FillFormTests extends BaseTest {
         //Address
         $("#currentAddress").setValue("Current Address");
         $("#state").click();
-        $("#react-select-3-option-0").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
-        $("#react-select-4-option-0").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
 
         //Submit
         $("#submit").click();
