@@ -1,7 +1,6 @@
 package guru.qa;
 
 import com.codeborne.selenide.DragAndDropOptions;
-import com.codeborne.selenide.selector.ByTagAndText;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.visible;
