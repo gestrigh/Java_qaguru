@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class FillFormTests extends BaseTest {
+public class RegistrationTests extends BaseTest {
     @BeforeAll
     static void settings() {
         open("/automation-practice-form");
