@@ -1,17 +1,15 @@
-package pages;
+package guru.qa.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import guru.qa.BaseTest;
-import pages.components.CalendarComponent;
-import pages.components.ResultsTableComponent;
+import guru.qa.pages.components.CalendarComponent;
+import guru.qa.pages.components.ResultsTableComponent;
 
 import static com.codeborne.selenide.Condition.hidden;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class RegistrationPage extends BaseTest {
     public static SelenideElement firstNameInput = $("#firstName"),
