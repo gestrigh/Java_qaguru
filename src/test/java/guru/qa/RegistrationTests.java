@@ -25,9 +25,8 @@ public class RegistrationTests extends BaseTest {
                 .setAddress("Current Address")
                 .setState("NCR")
                 .setCity("Delhi")
-                .clickSubmit();
-        //Result
-        registrationPage.checkResult("Student Name", "Roman Timofeev")
+                .clickSubmit()
+                .checkResult("Student Name", "Roman Timofeev")
                 .checkResult("Student Email", "test@gmail.com")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "0123456789")
@@ -49,8 +48,8 @@ public class RegistrationTests extends BaseTest {
                 .setDateOfBirthday("11","January","1998")
                 .setSubjects("Arts")
                 .setHobbies("Sports")
-                .clickSubmit();
-        registrationPage.checkResult("Student Name", "Roman Timofeev")
+                .clickSubmit()
+                .checkResult("Student Name", "Roman Timofeev")
                 .checkResult("Student Email", "test@gmail.com")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "0123456789")
