@@ -4,7 +4,9 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import guru.qa.BaseTest;
 import pages.components.CalendarComponent;
+import pages.components.ResultsTableComponent;
 
+import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -25,8 +27,11 @@ public class RegistrationPage extends BaseTest {
                                 stateInput = $("#state"),
                                 cityInput = $("#city"),
                                 stateCityWrapper = $("#stateCity-wrapper"),
-                                submitButton =  $("#submit");
+                                submitButton =  $("#submit"),
+                                resultTable = $(".modal-content");
     CalendarComponent calendarComponent = new CalendarComponent();
+    ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
+
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         Selenide.executeJavaScript("$('#fixedban').remove()");
@@ -92,7 +97,11 @@ public class RegistrationPage extends BaseTest {
         return this;
     }
     public RegistrationPage checkResult(String key, String value){
-        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
+        resultsTableComponent.checkSubmitTable(key, value);
+        return this;
+    }
+    public RegistrationPage emptyForm(){
+        resultTable.shouldBe(hidden);
         return this;
     }
 
