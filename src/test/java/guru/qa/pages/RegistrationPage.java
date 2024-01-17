@@ -2,7 +2,6 @@ package guru.qa.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import guru.qa.BaseTest;
 import guru.qa.pages.components.CalendarComponent;
 import guru.qa.pages.components.ResultsTableComponent;
 
@@ -11,8 +10,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class RegistrationPage extends BaseTest {
-    public static SelenideElement firstNameInput = $("#firstName"),
+public class RegistrationPage {
+    private final SelenideElement firstNameInput = $("#firstName"),
                                 lustNameInput = $("#lastName"),
                                 userEmailInput = $("#userEmail"),
                                 genderInput = $("#genterWrapper"),

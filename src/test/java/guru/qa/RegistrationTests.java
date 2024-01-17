@@ -3,9 +3,6 @@ package guru.qa;
 import org.junit.jupiter.api.Test;
 import guru.qa.pages.RegistrationPage;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-
 public class RegistrationTests extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
