@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
     private final SelenideElement firstNameInput = $("#firstName"),
-                                lustNameInput = $("#lastName"),
+                                lastNameInput = $("#lastName"),
                                 userEmailInput = $("#userEmail"),
                                 genderInput = $("#genterWrapper"),
                                 userNumberInput = $("#userNumber"),
@@ -39,8 +39,8 @@ public class RegistrationPage {
         firstNameInput.setValue(value);
         return this;
     }
-    public RegistrationPage setLustName(String value) {
-        lustNameInput.setValue(value);
+    public RegistrationPage setLastName(String value) {
+        lastNameInput.setValue(value);
         return this;
     }
     public RegistrationPage setUserEmail(String value) {

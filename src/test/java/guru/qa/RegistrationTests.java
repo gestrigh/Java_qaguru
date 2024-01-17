@@ -11,7 +11,7 @@ public class RegistrationTests extends BaseTest {
     void successRegistrationTest() {
         registrationPage.openPage()
                 .setFirstName("Roman")
-                .setLustName("Timofeev")
+                .setLastName("Timofeev")
                 .setUserEmail("test@gmail.com")
                 .setGender("Male")
                 .setUserNumber("0123456789")
@@ -38,7 +38,7 @@ public class RegistrationTests extends BaseTest {
     void notFullRegistrationTest(){
         registrationPage.openPage()
                 .setFirstName("Roman")
-                .setLustName("Timofeev")
+                .setLastName("Timofeev")
                 .setUserEmail("test@gmail.com")
                 .setGender("Male")
                 .setUserNumber("0123456789")
