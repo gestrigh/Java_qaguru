@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 import java.util.HashMap;
 
 public class TestData {
-    static Faker faker = new Faker();
+    Faker faker = new Faker();
 
     String firstName = faker.name().firstName();
     String lastName = faker.name().lastName();
