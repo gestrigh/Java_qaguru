@@ -2,6 +2,8 @@ package guru.qa;
 
 import com.github.javafaker.Faker;
 
+import java.util.HashMap;
+
 public class TestData {
     static Faker faker = new Faker();
 
@@ -17,6 +19,8 @@ public class TestData {
     String hobbies = getHobbies();
     String imgName = "Anime.png";
     String address = faker.address().fullAddress();
+    String city = getCity();
+    String state = getStateByCity(city);
 
 
 
@@ -33,5 +37,21 @@ public class TestData {
     }
     public String getHobbies() {
         return faker.options().option("Sports", "Reading", "Music");
+    }
+    public String getCity() {
+        return faker.options().option("Delhi", "Agra", "Karnal", "Gurgaon", "Lucknow", "Panipat", "Jaipur", "Jaiselmer");
+    }
+
+    public String getStateByCity(String value) {
+        HashMap<String, String> cityAndState = new HashMap<>();
+        cityAndState.put("Delhi", "NCR");
+        cityAndState.put("Gurgaon", "NCR");
+        cityAndState.put("Agra", "Uttar Pradesh");
+        cityAndState.put("Lucknow", "Uttar Pradesh");
+        cityAndState.put("Karnal", "Haryana");
+        cityAndState.put("Panipat", "Haryana");
+        cityAndState.put("Jaipur", "Rajasthan");
+        cityAndState.put("Jaiselmer", "Rajasthan");
+        return cityAndState.get(value);
     }
 }
