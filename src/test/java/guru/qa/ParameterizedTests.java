@@ -43,7 +43,7 @@ public class ParameterizedTests {
         $("p#name").shouldHave(text(name));
         $("p#email").shouldHave(text(email));
     }
-    @MethodSource
+    @MethodSource("fullNameAndEmailAndCurrentAddressTextBoxTests")
     @ParameterizedTest(name = "Заполнение полей full name значением {0} и Email значением {1} и Current Address значенем {2}")
     void fullNameAndEmailAndCurrentAddressTextBoxTests(String name, String email, String address){
         $("[placeholder=\"Full Name\"]").setValue(name);
