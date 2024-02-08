@@ -16,7 +16,9 @@ dependencies {
             'commons-io:commons-io:2.15.1',
             'com.codeborne:pdf-test:1.5.0',
             'com.opencsv:opencsv:5.9',
-            'com.codeborne:xls-test:1.4.3'
+            'com.codeborne:xls-test:1.4.3',
+            'com.fasterxml.jackson.core:jackson-core:2.16.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.16.1'
     )
 }
 compileJava {

@@ -19,8 +19,7 @@ public class ZipFilesTest {
     @Test
     @DisplayName("Проверка содержимого PDF")
     void pdfParsingTest() throws Exception {
-        try (InputStream is = cl.getResourceAsStream("sample.zip");
-             ZipInputStream zis = new ZipInputStream(is)) {
+        try (InputStream is = cl.getResourceAsStream("sample.zip"); ZipInputStream zis = new ZipInputStream(is)) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
                 if (entry.getName().endsWith(".pdf")) {
@@ -33,8 +32,7 @@ public class ZipFilesTest {
     @Test
     @DisplayName("Проверка содержимого CSV")
     void csvParsingTest() throws Exception {
-        try (InputStream is = cl.getResourceAsStream("sample.zip");
-             ZipInputStream zis = new ZipInputStream(is)) {
+        try (InputStream is = cl.getResourceAsStream("sample.zip"); ZipInputStream zis = new ZipInputStream(is)) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
                 if (entry.getName().endsWith(".csv")) {
@@ -48,8 +46,7 @@ public class ZipFilesTest {
     @Test
     @DisplayName("Проверка содержимого XLSX")
     void xlsParsingTest() throws Exception {
-        try (InputStream is = cl.getResourceAsStream("sample.zip");
-             ZipInputStream zis = new ZipInputStream(is)) {
+        try (InputStream is = cl.getResourceAsStream("sample.zip"); ZipInputStream zis = new ZipInputStream(is)) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
                 if (entry.getName().endsWith(".xlsx")) {

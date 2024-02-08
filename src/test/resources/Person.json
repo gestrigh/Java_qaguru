@@ -1,0 +1,9 @@
+{
+  "name": "Roman",
+  "age": "26",
+  "hobbie": ["anime","games","coding"],
+  "passport": {
+    "number": 123456,
+    "issuer": "MVD"
+  }
+}
