@@ -21,6 +21,7 @@ public class JsonParsingTest {
             Assertions.assertEquals("Roman", object.name);
             Assertions.assertEquals(26, object.age);
             Assertions.assertArrayEquals(new String[]{"anime","games","coding"}, object.hobbie.toArray());
+            Assertions.assertEquals(123456, object.passport.number);
             Assertions.assertEquals("MVD", object.passport.issuer);
             }
         }
