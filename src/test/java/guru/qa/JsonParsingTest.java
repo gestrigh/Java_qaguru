@@ -1,7 +1,7 @@
 package guru.qa;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import guru.qa.model.PersonHuman;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,9 +17,11 @@ public class JsonParsingTest {
     void jsonParsingTest() throws Exception{
         try (InputStream is = cl.getResourceAsStream("Person.json"); Reader reader = new InputStreamReader(is)){
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.readValue(reader, JsonNode.class);
-            Assertions.assertEquals("");
-
+            PersonHuman object = objectMapper.readValue(reader, PersonHuman.class);
+            Assertions.assertEquals("Roman", object.name);
+            Assertions.assertEquals(26, object.age);
+            Assertions.assertArrayEquals(new String[]{"anime","games","coding"}, object.hobbie.toArray());
+            Assertions.assertEquals("MVD", object.passport.issuer);
             }
         }
     }
