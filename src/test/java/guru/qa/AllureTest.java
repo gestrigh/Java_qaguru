@@ -2,6 +2,7 @@ package guru.qa;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import guru.qa.data.RepositoryName;
+import guru.qa.data.WebSteps;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -45,5 +46,15 @@ public class AllureTest {
         step("Проверяем наличие issue" + repositoryName, () -> {
            $("#issue_1_link").shouldHave(text(repositoryName.issuieName));
        });
+    }
+    @Test
+    @DisplayName("Тест с аннотациями")
+    public void annotatedStepTest(){
+        WebSteps steps = new WebSteps();
+        steps.openMainPage();
+        steps.searchRepository(repositoryName.repoName);
+        steps.clickOnRepository(repositoryName.repoName);
+        steps.clickOnIssue();
+        steps.testIssue(repositoryName.issuieName);
     }
 }
