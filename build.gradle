@@ -1,9 +1,25 @@
 plugins {
     id 'java'
+    id'io.qameta.allure' version '2.11.2'
 }
 
 group = 'guru.qa'
 version = '1.0'
+
+allure {
+    report {
+        version.set("2.25.0")
+    }
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        aspectjVersion.set("1.9.21")
+        frameworks {
+            junit5 { //название фреймворка
+                adapterVersion.set("2.25.0") //версия интеграции фреймворка и Allure
+            }
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -18,7 +34,8 @@ dependencies {
             'com.opencsv:opencsv:5.9',
             'com.codeborne:xls-test:1.4.3',
             'com.fasterxml.jackson.core:jackson-core:2.16.1',
-            'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+            'com.fasterxml.jackson.core:jackson-databind:2.16.1',
+            'io.qameta.allure:allure-selenide:2.25.0'
     )
 }
 compileJava {
