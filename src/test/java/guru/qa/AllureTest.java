@@ -1,9 +1,11 @@
 package guru.qa;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import guru.qa.data.RepositoryName;
 import guru.qa.data.WebSteps;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +17,10 @@ import static org.openqa.selenium.By.linkText;
 
 public class AllureTest {
     RepositoryName repositoryName = new RepositoryName();
+    @AfterEach
+    void afterEach() {
+        Selenide.closeWebDriver();
+    }
     @Test
     @DisplayName("Тест Чистый Selenide (с Listener)")
     public void selenideSearchIssueTest(){
@@ -30,20 +36,20 @@ public class AllureTest {
     @DisplayName("Тест Лямбда шаги через step (name, () -> {})")
     public void lambdaStepTest(){
         SelenideLogger.addListener("allure", new AllureSelenide());
-        step("Открываем главную страницу", () -> {
+        step("Открываем главную страницу ", () -> {
             open("https://github.com/");
         });
-        step("Ищем репозиторий" + repositoryName, () -> {
+        step("Ищем репозиторий " + repositoryName, () -> {
             $(".header-search-button").click();
             $("#query-builder-test").setValue(repositoryName.repoName).submit();
         });
-        step("Кликаем по ссылке репозитория" + repositoryName, () -> {
+        step("Кликаем по ссылке репозитория " + repositoryName, () -> {
             $(linkText(repositoryName.repoName)).click();
         });
-        step("Переходим в раздел issues" + repositoryName, () -> {
+        step("Переходим в раздел issues " + repositoryName, () -> {
             $("#issues-tab").click();
         });
-        step("Проверяем наличие issue" + repositoryName, () -> {
+        step("Проверяем наличие issue " + repositoryName, () -> {
            $("#issue_1_link").shouldHave(text(repositoryName.issuieName));
        });
     }
