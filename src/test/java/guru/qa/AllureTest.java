@@ -2,7 +2,6 @@ package guru.qa;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import guru.qa.data.RepositoryName;
 import guru.qa.data.WebSteps;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -16,7 +15,8 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 
 public class AllureTest {
-    RepositoryName repositoryName = new RepositoryName();
+    private final String REPOSITORY = "gestrigh/Java_qaguru";
+    private final String issuieName = "hw 12 issue";
     @AfterEach
     void afterEach() {
         Selenide.closeWebDriver();
@@ -27,10 +27,10 @@ public class AllureTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         open("https://github.com/");
         $(".header-search-button").click();
-        $("#query-builder-test").setValue(repositoryName.repoName).submit();
-        $(linkText(repositoryName.repoName)).click();
+        $("#query-builder-test").setValue(REPOSITORY).submit();
+        $(linkText(REPOSITORY)).click();
         $("#issues-tab").click();
-        $("#issue_1_link").shouldHave(text(repositoryName.issuieName));
+        $("#issue_1_link").shouldHave(text(issuieName));
     }
     @Test
     @DisplayName("Тест Лямбда шаги через step (name, () -> {})")
@@ -39,18 +39,18 @@ public class AllureTest {
         step("Открываем главную страницу ", () -> {
             open("https://github.com/");
         });
-        step("Ищем репозиторий " + repositoryName, () -> {
+        step("Ищем репозиторий " + REPOSITORY, () -> {
             $(".header-search-button").click();
-            $("#query-builder-test").setValue(repositoryName.repoName).submit();
+            $("#query-builder-test").setValue(REPOSITORY).submit();
         });
-        step("Кликаем по ссылке репозитория " + repositoryName, () -> {
-            $(linkText(repositoryName.repoName)).click();
+        step("Кликаем по ссылке репозитория " + REPOSITORY, () -> {
+            $(linkText(REPOSITORY)).click();
         });
-        step("Переходим в раздел issues " + repositoryName, () -> {
+        step("Переходим в раздел issues " + REPOSITORY, () -> {
             $("#issues-tab").click();
         });
-        step("Проверяем наличие issue " + repositoryName, () -> {
-           $("#issue_1_link").shouldHave(text(repositoryName.issuieName));
+        step("Проверяем наличие issue " + REPOSITORY, () -> {
+           $("#issue_1_link").shouldHave(text(issuieName));
        });
     }
     @Test
@@ -58,9 +58,9 @@ public class AllureTest {
     public void annotatedStepTest(){
         WebSteps steps = new WebSteps();
         steps.openMainPage();
-        steps.searchRepository(repositoryName.repoName);
-        steps.clickOnRepository(repositoryName.repoName);
+        steps.searchRepository(REPOSITORY);
+        steps.clickOnRepository(REPOSITORY);
         steps.clickOnIssue();
-        steps.testIssue(repositoryName.issuieName);
+        steps.testIssue(issuieName);
     }
 }
