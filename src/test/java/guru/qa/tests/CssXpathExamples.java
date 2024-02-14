@@ -1,4 +1,4 @@
-package guru.qa;
+package guru.qa.tests;
 
 import static com.codeborne.selenide.Selenide.$;
 

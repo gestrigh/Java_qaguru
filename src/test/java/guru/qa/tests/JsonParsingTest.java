@@ -1,4 +1,4 @@
-package guru.qa;
+package guru.qa.tests;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.qa.model.PersonHuman;
