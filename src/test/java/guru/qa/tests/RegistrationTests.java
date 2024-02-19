@@ -1,8 +1,10 @@
 package guru.qa.tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import guru.qa.pages.RegistrationPage;
 
+@Tag("Registration")
 public class RegistrationTests extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
