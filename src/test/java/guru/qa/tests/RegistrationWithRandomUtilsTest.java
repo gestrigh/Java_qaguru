@@ -3,7 +3,7 @@ package guru.qa.tests;
 import guru.qa.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
-public class RegistrationWithRandomUtilsTest extends BaseTest {
+public class  RegistrationWithRandomUtilsTest extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
