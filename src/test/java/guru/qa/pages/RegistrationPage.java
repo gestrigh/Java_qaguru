@@ -36,11 +36,11 @@ public class RegistrationPage {
 
     @Step("Открыть страницу automation-practice-form и удалить футер")
     public RegistrationPage openPage() {
+        open("/automation-practice-form");
         if (Objects.equals(Configuration.remote, "https://user1:1234@selenoid.autotests.cloud/wd/hub"))
         {
             $(".fc-button-label").shouldHave(text("Consent")).click();
         }
-        open("/automation-practice-form");
         Selenide.executeJavaScript("$('#fixedban').remove()");
         Selenide.executeJavaScript("$('footer').remove()");
         return this;
