@@ -1,15 +1,30 @@
 package guru.qa.tests;
 
+import com.codeborne.selenide.Selenide;
 import guru.qa.pages.RegistrationPage;
 import guru.qa.utils.RandomUtil;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class  RegistrationWithRandomUtilsTest extends BaseTest {
+@Feature("Demoqa tests")
+@Story("Automation-practice-form")
+@Tag("demoqa")
+@Owner("rtimofeev")
+public class JenkinsRegistrationTest extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
     RandomUtil randomUtil = new RandomUtil();
-
+    @AfterEach
+    void afterEach() {
+        Selenide.closeWebDriver();
+    }
     @Test
+    @DisplayName("Успешный тест заполнения формы")
     void successRegistrationTest() {
         registrationPage.openPage()
                 .setFirstName(randomUtil.firstName)
@@ -37,6 +52,7 @@ public class  RegistrationWithRandomUtilsTest extends BaseTest {
                 .checkResult("State and City", randomUtil.state + " " + randomUtil.city);
     }
     @Test
+    @DisplayName("Форма с не полными данными")
     void notFullRegistrationTest(){
         registrationPage.openPage()
                 .setFirstName(randomUtil.firstName)
@@ -57,6 +73,7 @@ public class  RegistrationWithRandomUtilsTest extends BaseTest {
                 .checkResult("Hobbies", randomUtil.hobbies);
     }
     @Test
+    @DisplayName("Негативный тест")
     void failRegistrationTest(){
         registrationPage.openPage()
                 .clickSubmit()
