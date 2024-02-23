@@ -1,30 +1,29 @@
-package guru.qa.tests;
+package guru.qa.utils;
 
 import com.github.javafaker.Faker;
 
 import java.util.HashMap;
 
-public class TestData {
+public class RandomUtil {
     Faker faker = new Faker();
-
-    String firstName = faker.name().firstName();
-    String lastName = faker.name().lastName();
-    String userEmail = faker.internet().emailAddress(firstName.toLowerCase() + "." + lastName.toLowerCase());
-    String gender = getGender();
-    String userNumber = faker.phoneNumber().subscriberNumber(10);
-    String calendarDay = String.format("%02d", faker.number().numberBetween(1, 29));
-    String calendarMonth = getCalendarMonth();
-    String calendarYear = String.valueOf(faker.number().numberBetween(1950, 2024));
-    String subjects = getSubjects();
-    String hobbies = getHobbies();
-    String imgName = "Anime.png";
-    String address = faker.address().fullAddress();
-    String city = getCity();
-    String state = getStateByCity(city);
-
+    public String firstName = faker.name().firstName();
+    public String lastName = faker.name().lastName();
+    public String userEmail = faker.internet().emailAddress(firstName.toLowerCase() + "." + lastName.toLowerCase());
+    public String gender = getGender();
+    public String userNumber = faker.phoneNumber().subscriberNumber(10);
+    public String calendarDay = String.format("%02d", faker.number().numberBetween(1, 29));
+    public String calendarMonth = getCalendarMonth();
+    public String calendarYear = String.valueOf(faker.number().numberBetween(1950, 2024));
+    public String subjects = getSubjects();
+    public String hobbies = getHobbies();
+    public String imgName = "Anime.png";
+    public String address = faker.address().fullAddress();
+    public String city = getCity();
+    public String state = getStateByCity(city);
 
 
     public String getGender() {
+
         return faker.options().option("Male", "Female", "Other");
     }
     public String getCalendarMonth() {
@@ -36,6 +35,7 @@ public class TestData {
                 "Computer Science", "Commerce", "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics");
     }
     public String getHobbies() {
+
         return faker.options().option("Sports", "Reading", "Music");
     }
     public String getCity() {

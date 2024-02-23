@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id'io.qameta.allure' version '2.11.2'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'guru.qa'
@@ -27,7 +27,7 @@ repositories {
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter:5.10.1',
-            'com.codeborne:selenide:7.0.4',
+            'com.codeborne:selenide:6.19.1',
             'com.github.javafaker:javafaker:1.0.2',
             'commons-io:commons-io:2.15.1',
             'com.codeborne:pdf-test:1.5.0',
@@ -35,7 +35,8 @@ dependencies {
             'com.codeborne:xls-test:1.4.3',
             'com.fasterxml.jackson.core:jackson-core:2.16.1',
             'com.fasterxml.jackson.core:jackson-databind:2.16.1',
-            'io.qameta.allure:allure-selenide:2.25.0'
+            'io.qameta.allure:allure-selenide:2.25.0',
+            'org.aeonbits.owner:owner:1.0.12'
     )
 }
 compileJava {
@@ -44,6 +45,18 @@ compileJava {
 compileTestJava {
     options.encoding = 'UTF-8'
 }
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Registration")
+    }
 }
