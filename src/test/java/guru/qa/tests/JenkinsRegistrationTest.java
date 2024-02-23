@@ -26,7 +26,9 @@ public class JenkinsRegistrationTest extends BaseTest {
     @Test
     @DisplayName("Успешный тест заполнения формы")
     void successRegistrationTest() {
-        registrationPage.openPage()
+        Selenide.sleep(20000);
+        registrationPage
+                .openPage()
                 .setFirstName(randomUtil.firstName)
                 .setLastName(randomUtil.lastName)
                 .setUserEmail(randomUtil.userEmail)

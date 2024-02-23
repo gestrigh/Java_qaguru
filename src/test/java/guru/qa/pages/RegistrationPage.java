@@ -1,12 +1,16 @@
 package guru.qa.pages;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import guru.qa.pages.components.CalendarComponent;
 import guru.qa.pages.components.ResultsTableComponent;
 import io.qameta.allure.Step;
 
+import java.util.Objects;
+
 import static com.codeborne.selenide.Condition.hidden;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -32,6 +36,10 @@ public class RegistrationPage {
 
     @Step("Открыть страницу automation-practice-form и удалить футер")
     public RegistrationPage openPage() {
+        if (Objects.equals(Configuration.remote, "https://user1:1234@selenoid.autotests.cloud/wd/hub"))
+        {
+            $(".fc-button-label").shouldHave(text("Consent")).click();
+        }
         open("/automation-practice-form");
         Selenide.executeJavaScript("$('#fixedban').remove()");
         Selenide.executeJavaScript("$('footer').remove()");
