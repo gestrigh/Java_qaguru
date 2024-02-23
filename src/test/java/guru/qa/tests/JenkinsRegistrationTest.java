@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 @Feature("Demoqa tests")
 @Story("Automation-practice-form")
-@Tag("demoqa")
+@Tag("Registration")
 @Owner("rtimofeev")
 public class JenkinsRegistrationTest extends BaseTest {
 
