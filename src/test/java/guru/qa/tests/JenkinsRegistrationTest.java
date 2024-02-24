@@ -20,10 +20,6 @@ public class JenkinsRegistrationTest extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
     RandomUtil randomUtil = new RandomUtil();
-    @AfterEach
-    void afterEach() {
-        Selenide.closeWebDriver();
-    }
     @Test
     @DisplayName("Успешный тест заполнения формы")
     void successRegistrationTest() {
