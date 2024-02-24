@@ -7,7 +7,9 @@ import guru.qa.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -21,6 +23,13 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.browserVersion = "100.0";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+        Configuration.browserCapabilities = capabilities;
     }
     @AfterEach
     void addAttachments() {
