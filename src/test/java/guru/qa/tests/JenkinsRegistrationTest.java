@@ -1,6 +1,7 @@
 package guru.qa.tests;
 
 import com.codeborne.selenide.Selenide;
+import guru.qa.helpers.Attach;
 import guru.qa.pages.RegistrationPage;
 import guru.qa.utils.RandomUtil;
 import io.qameta.allure.Feature;
