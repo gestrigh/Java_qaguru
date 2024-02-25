@@ -61,3 +61,8 @@ task demoqa_test(type: Test) {
         includeTags("Registration")
     }
 }
+task properties_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("parameterizedTest")
+    }
+}

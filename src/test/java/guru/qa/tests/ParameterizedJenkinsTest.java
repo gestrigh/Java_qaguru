@@ -5,6 +5,7 @@ import guru.qa.pages.RegistrationPage;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class ParameterizedJenkinsTest extends BaseTest {
@@ -16,6 +17,7 @@ public class ParameterizedJenkinsTest extends BaseTest {
         projectConfig = ConfigFactory.create(ProjectConfig.class);
     }
     @Test
+    @Tag("parameterizedTest")
     @DisplayName("Параметризованная форма с не полными данными")
     void parameterizedRegistrationTest(){
         registrationPage.openPage()
