@@ -40,7 +40,7 @@ public class BaseTest {
     void addAttachments() {
         Attach.screenshotAs("Last Screenshot");
         Attach.pageSource();
-        if (!Objects.equals(Configuration.browser, "chrome")) {
+        if (!Objects.equals(Configuration.browser, "firefox")) {
             Attach.browserConsoleLogs();
         }
         Attach.addVideo();
