@@ -18,12 +18,13 @@ public class BaseTest {
     static void beforeAll() {
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
 
-        Configuration.browserSize = driverConfig.browserSize();
+
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = driverConfig.browserRemoteUrl();
-        Configuration.browser = driverConfig.browserName();
-        Configuration.browserVersion = driverConfig.browserVersion();
+        Configuration.remote = System.getProperty("browserRemoteUrl", driverConfig.browserRemoteUrl());
+        Configuration.browser = System.getProperty("browserName", driverConfig.browserName());
+        Configuration.browserVersion = System.getProperty("browserVersion", driverConfig.browserVersion());
+        Configuration.browserSize = System.getProperty("browserSize", driverConfig.browserSize());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
