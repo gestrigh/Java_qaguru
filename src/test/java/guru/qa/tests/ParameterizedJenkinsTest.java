@@ -13,16 +13,18 @@ import org.junit.jupiter.api.Test;
 public class ParameterizedJenkinsTest extends BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
     ProjectConfig projectConfig;
+
     @BeforeEach
-            void setConfig(){
+    void setConfig() {
         System.setProperty("env", "test");
         projectConfig = ConfigFactory.create(ProjectConfig.class);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
+
     @Test
     @Tag("parameterizedTest")
     @DisplayName("Параметризованная форма с не полными данными")
-    void parameterizedRegistrationTest(){
+    void parameterizedRegistrationTest() {
         registrationPage.openPage()
                 .setFirstName(projectConfig.studentName())
                 .setLastName(projectConfig.studentLastName())

@@ -20,6 +20,7 @@ public class JenkinsRegistrationTest extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
     RandomUtil randomUtil = new RandomUtil();
+
     @Test
     @DisplayName("Успешный тест заполнения формы")
     void successRegistrationTest() {
@@ -42,16 +43,17 @@ public class JenkinsRegistrationTest extends BaseTest {
                 .checkResult("Student Email", randomUtil.userEmail)
                 .checkResult("Gender", randomUtil.gender)
                 .checkResult("Mobile", randomUtil.userNumber)
-                .checkResult("Date of Birth", randomUtil.calendarDay + " " + randomUtil.calendarMonth + ","+ randomUtil.calendarYear)
+                .checkResult("Date of Birth", randomUtil.calendarDay + " " + randomUtil.calendarMonth + "," + randomUtil.calendarYear)
                 .checkResult("Subjects", randomUtil.subjects)
                 .checkResult("Hobbies", randomUtil.hobbies)
                 .checkResult("Picture", randomUtil.imgName)
                 .checkResult("Address", randomUtil.address)
                 .checkResult("State and City", randomUtil.state + " " + randomUtil.city);
     }
+
     @Test
     @DisplayName("Форма с не полными данными")
-    void notFullRegistrationTest(){
+    void notFullRegistrationTest() {
         registrationPage.openPage()
                 .setFirstName(randomUtil.firstName)
                 .setLastName(randomUtil.lastName)
@@ -66,13 +68,14 @@ public class JenkinsRegistrationTest extends BaseTest {
                 .checkResult("Student Email", randomUtil.userEmail)
                 .checkResult("Gender", randomUtil.gender)
                 .checkResult("Mobile", randomUtil.userNumber)
-                .checkResult("Date of Birth", randomUtil.calendarDay + " " + randomUtil.calendarMonth + ","+ randomUtil.calendarYear)
+                .checkResult("Date of Birth", randomUtil.calendarDay + " " + randomUtil.calendarMonth + "," + randomUtil.calendarYear)
                 .checkResult("Subjects", randomUtil.subjects)
                 .checkResult("Hobbies", randomUtil.hobbies);
     }
+
     @Test
     @DisplayName("Негативный тест")
-    void failRegistrationTest(){
+    void failRegistrationTest() {
         registrationPage.openPage()
                 .clickSubmit()
                 .emptyForm();

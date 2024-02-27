@@ -9,24 +9,28 @@ import static org.openqa.selenium.By.linkText;
 
 public class WebSteps {
     @Step("Открываем главную страницу")
-    public void openMainPage(){
+    public void openMainPage() {
         open("https://github.com/");
     }
+
     @Step("Ищем репозиторий {repo}")
-    public void searchRepository(String repo){
+    public void searchRepository(String repo) {
         $(".header-search-button").click();
         $("#query-builder-test").setValue(repo).submit();
     }
+
     @Step("Кликаем по ссылке {repo}")
-    public void clickOnRepository(String repo){
+    public void clickOnRepository(String repo) {
         $(linkText(repo)).click();
     }
+
     @Step("Переходим в раздел issues")
-    public void clickOnIssue(){
+    public void clickOnIssue() {
         $("#issues-tab").click();
     }
+
     @Step("Проверяем наличие issue {issue}")
-    public void testIssue(String issue){
+    public void testIssue(String issue) {
         $("#issue_1_link").shouldHave(text(issue));
     }
 }

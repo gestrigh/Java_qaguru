@@ -26,18 +26,22 @@ public class RandomUtil {
 
         return faker.options().option("Male", "Female", "Other");
     }
+
     public String getCalendarMonth() {
         return faker.options().option("January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December");
     }
+
     public String getSubjects() {
         return faker.options().option("Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
                 "Computer Science", "Commerce", "Accounting", "Economics", "Arts", "Social Studies", "History", "Civics");
     }
+
     public String getHobbies() {
 
         return faker.options().option("Sports", "Reading", "Music");
     }
+
     public String getCity() {
         return faker.options().option("Delhi", "Agra", "Karnal", "Gurgaon", "Lucknow", "Panipat", "Jaipur", "Jaiselmer");
     }

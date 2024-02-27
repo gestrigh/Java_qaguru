@@ -115,7 +115,7 @@ public class RegistrationPage {
         return this;
     }
     @Step("Проверка видимости таблицы")
-    public RegistrationPage checkTable(){
+    public RegistrationPage checkTable() {
         $(".modal-content").shouldBe(visible);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         return this;
