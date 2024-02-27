@@ -16,7 +16,6 @@ public class ParameterizedJenkinsTest extends BaseTest {
 
     @BeforeEach
     void setConfig() {
-        System.setProperty("env", "test");
         projectConfig = ConfigFactory.create(ProjectConfig.class);
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
