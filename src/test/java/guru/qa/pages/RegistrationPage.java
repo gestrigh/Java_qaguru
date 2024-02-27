@@ -9,8 +9,7 @@ import io.qameta.allure.Step;
 
 import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.hidden;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -113,6 +112,12 @@ public class RegistrationPage {
     public RegistrationPage clickSubmit()
     {
         submitButton.click();
+        return this;
+    }
+    @Step("Проверка видимости таблицы")
+    public RegistrationPage checkTable(){
+        $(".modal-content").shouldBe(visible);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         return this;
     }
     @Step("Проверка данных в таблице после регистрации")
