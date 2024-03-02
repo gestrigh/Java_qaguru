@@ -1,0 +1,9 @@
+6665012424:AAF4_6vOzwmKTNNAGId-lYVapedS-AvAyug
+Timofeev_qa_guru24_bot
+https://api.telegram.org/bot6665012424:AAF4_6vOzwmKTNNAGId-lYVapedS-AvAyug/getUpdates
+
+-1002132216102
+
+curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "-1002132216102", "text": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/bot6665012424:AAF4_6vOzwmKTNNAGId-lYVapedS-AvAyug/sendMessage
+
+java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.2.1.jar

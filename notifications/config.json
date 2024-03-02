@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "",
+    "project": "Timofeev_HW16",
+    "environment": "test",
+    "comment": "Hello there!",
+    "reportLink": "https://jenkins.autotests.cloud/view/QA.GURU/job/Timofeev_Roman/38",
+    "language": "en",
+    "allureFolder": "allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "6665012424:AAF4_6vOzwmKTNNAGId-lYVapedS-AvAyug",
+    "chat": "-1002132216102",
+    "replyTo": ""
+  }
+}
