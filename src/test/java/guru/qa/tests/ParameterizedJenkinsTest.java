@@ -1,7 +1,9 @@
 package guru.qa.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import guru.qa.config.ProjectConfig;
 import guru.qa.pages.RegistrationPage;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +15,7 @@ public class ParameterizedJenkinsTest extends BaseTest {
     ProjectConfig projectConfig;
     @BeforeEach
             void setConfig(){
-        System.setProperty("env", "test");
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         projectConfig = ConfigFactory.create(ProjectConfig.class);
     }
     @Test

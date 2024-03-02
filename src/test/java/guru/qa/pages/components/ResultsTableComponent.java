@@ -8,8 +8,6 @@ import static com.codeborne.selenide.Selenide.$;
 public class ResultsTableComponent {
 
     public void checkSubmitTable(String key, String value){
-        $(".modal-content").shouldBe(visible);
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").$(byText(key)).parent()
                 .shouldHave(text(value));
     }

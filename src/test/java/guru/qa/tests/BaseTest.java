@@ -26,8 +26,6 @@ public class BaseTest {
         Configuration.browserVersion = System.getProperty("browserVersion", driverConfig.browserVersion());
         Configuration.browserSize = System.getProperty("browserSize", driverConfig.browserSize());
 
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
