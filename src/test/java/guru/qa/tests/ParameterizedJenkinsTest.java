@@ -29,6 +29,7 @@ public class ParameterizedJenkinsTest extends BaseTest {
                 .setGender("Male")
                 .setUserNumber(projectConfig.studentNumber())
                 .clickSubmit()
+                .checkTable()
                 .checkResult("Student Name", projectConfig.studentName() + " " + projectConfig.studentLastName())
                 .checkResult("Student Email", projectConfig.studentEmail())
                 .checkResult("Gender", "Male")
