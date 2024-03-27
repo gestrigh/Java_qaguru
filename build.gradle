@@ -66,3 +66,8 @@ task properties_test(type: Test) {
         includeTags("parameterizedTest")
     }
 }
+task test_hw19(type: Test) {
+    useJUnitPlatform {
+        includeTags("hw19")
+    }
+}
