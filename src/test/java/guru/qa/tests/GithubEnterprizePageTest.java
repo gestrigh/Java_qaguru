@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byTagAndText;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class GithubEnterprizePageTest {
+public class GithubEnterprizePageTest extends BaseTest {
     @Test
     @Tag("hw19")
     void githubEnterprizePageTest() {
